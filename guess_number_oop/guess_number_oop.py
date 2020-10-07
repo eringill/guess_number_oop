@@ -4,7 +4,6 @@ from .Game import Game
 def play_game():        
     new_game = Game()
     print(new_game)
-    print(new_game.integer)
     
     while new_game.num_guesses < 20 and new_game.state == 1:
         new_game.make_guess()
