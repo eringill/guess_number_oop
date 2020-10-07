@@ -8,6 +8,7 @@ class Game():
         self.num_guesses = 0
         self.total_guesses = 20
         self.guesses = []
+        self.state = 1
         
     def make_guess(self):
         if self.num_guesses < 20:
@@ -26,6 +27,7 @@ class Game():
                 elif guess < self.integer: 
                     print ("\nThe actual integer is higher than the integer you chose.")
                 elif guess == self.integer:
+                    self.state = 0
                     print ("\nCongratulations you guessed the number in {} guesses.".format(self.num_guesses))
     
     def __repr__(self):

@@ -4,13 +4,17 @@ from .Game import Game
 def play_game():        
     new_game = Game()
     print(new_game)
+    print(new_game.integer)
     
-    while new_game.num_guesses < 20:
+    while new_game.num_guesses < 20 and new_game.state == 1:
         new_game.make_guess()
-        print(new_game)
+        
+        if new_game.state == 1:
+            print(new_game)
         
     if new_game.num_guesses == 20:
-        print("Sorry, you ran out of guesses. The computer picked {}".format(new_game.integer))
+        new_game.state = 0
+        print("Sorry, you ran out of guesses. The computer picked the number {}.".format(new_game.integer))
         
     print("Would you like to play again? (y/n)")
 
@@ -33,5 +37,3 @@ if response == 'y':
 else:
     print("Bye!")
     sys.exit(0)
-
-
